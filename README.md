@@ -6,32 +6,47 @@ Registered providers will be vetted by the site and their Service will now be ma
 
 ## User Stories
 1. As a user I want to select from a listing of currently available services near my location.
-2. As a user of a service I want an Text Messaging communication to start right away with between myself and the Service provider.
-3. As a user I want to receive a SMS message that the provider has been contacted.
+2. As a user of a service I want Text Messaging communication to start right away with myself and the Service provider.
+3. As a user I want to receive an SMS message that the provider has been contacted.
 4. As a registered/vetted service provider I want to receive a SMS message as when a user is reaching out to me.
-4. As a user I want to comment on the service quality provided by the selected provider.
-5. As a user I want to be able to rank the service provider.
-6. As an Administrator I want to be able to have edit control over the providers registered (so I can set the vetted boolean and delete those that do not pass the vetting process).
-7. As an Administrator I want edit control over all comments.
+5. As a user I want to comment on the service quality provided by the selected provider.
+6. As a user I want to be able to rank the service provider.
+7. As an Administrator I want to be able to have edit control over the providers registered (so I can set the vetted boolean and delete those that do not pass the vetting process).
+8. As an Administrator I want edit control over all comments.
 
 ## Work Items
 1. Work Items for User Story 1
-  * Service Provider table will require a category column.
-  * Additional Provider table columns will be:
-    *
-
+   * Service Provider table will require a category column that will be rendered on the user page as a picklist.
+   * Additional Provider table columns will be:
+      * category:string
+      * name:string
+      * cell:string
+      * user_id:integer
+      * availability:boolean
+      * service:string
+      * company:string
+      * address:string
+      * link:string
 2. Work Item for User Story 2
-  *
+   * NPM https://www.nexmo.com/products/sms
 3. Work Item for User Story 3
-  *
+   * NPM https://www.nexmo.com/products/sms
 4. Work Item for User Story 4
-  *
+   * NPM https://www.nexmo.com/products/sms
 5. Work Item for User Story 5
-  *
+   * Comment table will require following columns
+      * comment:string
+      * rank:integer
+    * A Ledger table will link comments to provider
+       * comment_id
+       * provider_id
 6. Work Item for User Story 6
-  *
+   * Ranking will exist in the comment table rank column and be averaged by adding all the rankings for the provider being ranked to a maximum value of 5.
 7. Work Item for User Story 7
-  *  
+   *  Admin user will be the only user that can edit the provider table record vetted:boolean.
+   * Admin user will be the only user that can delete provider records.
+8. Work Item for User Story 8
+   *  Admin user will be the only user that can show and delete the comments records.
 
 ## GitHub Project Links
 
