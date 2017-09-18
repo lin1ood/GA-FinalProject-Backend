@@ -20,13 +20,12 @@ Registered providers will be vetted by the site and their Service will now be ma
    * Additional Provider table columns will be:
       * category:string
       * name:string
-      * cell:string
-      * user_id:integer
-      * availability:boolean
-      * service:string
+      * cell_phone:string
+      * available:boolean
       * company:string
       * address:string
-      * link:string
+      * url:string
+      * user_id:integer
 2. Work Item for User Story 2
    * NPM https://www.nexmo.com/products/sms
 3. Work Item for User Story 3
@@ -38,8 +37,8 @@ Registered providers will be vetted by the site and their Service will now be ma
       * comment:string
       * rank:integer
     * A Ledger table will link comments to provider
-       * comment_id
-       * provider_id
+       * comment_id:integer
+       * provider_id:integer
 6. Work Item for User Story 6
    * Ranking will exist in the comment table rank column and be averaged by adding all the rankings for the provider being ranked to a maximum value of 5.
 7. Work Item for User Story 7
