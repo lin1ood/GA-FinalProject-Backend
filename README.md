@@ -1,24 +1,53 @@
-# README
+# I need service now.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Epic
+Create and application that will can provide users with the services that they need when they need them.  Providers can register their service as well as logon and modify their profile.
+Registered providers will be vetted by the site and their Service will now be made available on the site until vetted.  Providers can logon and update their availability status or use Geo location to show themselves as 'green' or available for service.  Users will be able to search registered and vetted service providers having a listing of the service provider in order of their 'green' (available) status and geo location area.  When a user selects a 'green' status provider a SMS message will be sent to the user and the provider prompting both that a service has been requested.  Users will also have the ability to leave comments on service providers as well as rank the providers.  The goal of this site is to provide customers access to needed services 'now'.  An Admin console will also be implemented for the vetting of service providers and comment monitoring.
 
-Things you may want to cover:
+## User Stories
+1. As a user I want to select from a listing of currently available services near my location.
+2. As a user of a service I want Text Messaging communication to start right away with myself and the Service provider.
+3. As a user I want to receive an SMS message that the provider has been contacted.
+4. As a registered/vetted service provider I want to receive a SMS message as when a user is reaching out to me.
+5. As a user I want to comment on the service quality provided by the selected provider.
+6. As a user I want to be able to rank the service provider.
+7. As an Administrator I want to be able to have edit control over the providers registered (so I can set the vetted boolean and delete those that do not pass the vetting process).
+8. As an Administrator I want edit control over all comments.
 
-* Ruby version
+## Work Items
+1. Work Items for User Story 1
+   * Service Provider table will require a category column that will be rendered on the user page as a picklist.
+   * Additional Provider table columns will be:
+      * category:string
+      * name:string
+      * cell:string
+      * user_id:integer
+      * availability:boolean
+      * service:string
+      * company:string
+      * address:string
+      * link:string
+2. Work Item for User Story 2
+   * NPM https://www.nexmo.com/products/sms
+3. Work Item for User Story 3
+   * NPM https://www.nexmo.com/products/sms
+4. Work Item for User Story 4
+   * NPM https://www.nexmo.com/products/sms
+5. Work Item for User Story 5
+   * Comment table will require following columns
+      * comment:string
+      * rank:integer
+    * A Ledger table will link comments to provider
+       * comment_id
+       * provider_id
+6. Work Item for User Story 6
+   * Ranking will exist in the comment table rank column and be averaged by adding all the rankings for the provider being ranked to a maximum value of 5.
+7. Work Item for User Story 7
+   *  Admin user will be the only user that can edit the provider table record vetted:boolean.
+   * Admin user will be the only user that can delete provider records.
+8. Work Item for User Story 8
+   *  Admin user will be the only user that can show and delete the comments records.
 
-* System dependencies
+## GitHub Project Links
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Heroku Deployment Link
