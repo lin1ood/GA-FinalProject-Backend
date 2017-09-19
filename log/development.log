@@ -649,3 +649,11 @@ Migrating to RenameUserPasswordToPasswordDigest (20170918230400)
   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 1], ["LIMIT", 11]]
   [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 AND "comments"."id" = $2 LIMIT $3[0m  [["provider_id", 1], ["id", 1], ["LIMIT", 1]]
+Started POST "/users/login" for 127.0.0.1 at 2017-09-18 21:11:50 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#login as HTML
+  Parameters: {"username"=>"Admin", "password"=>"[FILTERED]", "user"=>{"username"=>"Admin"}}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT $2[0m  [["username", "Admin"], ["LIMIT", 1]]
+Completed 200 OK in 77ms (Views: 1.0ms | ActiveRecord: 4.2ms)
+
+
