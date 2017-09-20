@@ -51,8 +51,9 @@ class UsersController < ApplicationController
     #todo: add a white list for only allowing Gizmo users.....
     puts params[:username]
     puts params[:password]
+    puts params[:email]
 
-    @user = User.new(username: params[:username].to_s, password: params[:password])
+    @user = User.new(username: params[:username].to_s, password: params[:password], email: params[:email])
     if @user.save
       render json: @user, status: :created
     else
