@@ -1,5 +1,6 @@
 class ProvidersController < ApplicationController
   before_action :set_provider, only: [:show, :update, :destroy]
+  # before_action :authorize_user, except: [:login, :create, :index]
 
   # GET /providers
   def index
@@ -15,6 +16,8 @@ class ProvidersController < ApplicationController
 
   # POST /providers
   def create
+    puts '------------ POST /providers create ---------------'
+    # puts 'provider_params = ' + provider_params.to_s
     @provider = Provider.new(provider_params)
 
     if @provider.save
@@ -41,11 +44,13 @@ class ProvidersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_provider
+      puts 'SET_PROVIDER PARAMS[:ID] = ' + params[:id].to_s
       @provider = Provider.find(params[:id])
     end
 
     # Only allow a trusted parameter "white list" through.
     def provider_params
-      params.require(:provider).permit(:name, :category, :cell_phone, :available, :company, :address, :url, :user_id)
+      params.require(:provider).permit(:name, :category, :cell_phone, :available, :company, :address, :url, :user_id, :vetted)
+      # params.require(:provider).require(:user_id)
     end
 end
