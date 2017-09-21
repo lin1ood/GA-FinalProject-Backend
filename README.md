@@ -55,5 +55,7 @@ Registered providers will be vetted by the site and their Service will now be ma
     * The Administrator will have full CRUD for the user records.
 
 ## GitHub Project Links
+https://github.com/lin1ood/GA-FinalProject-Backend
 
 ## Heroku Deployment Link
+https://frozen-badlands-77854.herokuapp.com/

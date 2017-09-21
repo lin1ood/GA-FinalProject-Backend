@@ -4010,3 +4010,179 @@ Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 1.4ms)
   [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
   [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
   [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/providers" for 127.0.0.1 at 2017-09-21 18:07:30 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 29ms (Views: 18.0ms | ActiveRecord: 3.8ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-21 18:07:37 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.6ms)
+
+
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1[0m  [["key", "environment"]]
+  [1m[35m (189.2ms)[0m  [1m[35mDROP DATABASE IF EXISTS "services_app_api_development"[0m
+  [1m[35m (188.6ms)[0m  [1m[35mDROP DATABASE IF EXISTS "services_app_api_test"[0m
+  [1m[35m (439.1ms)[0m  [1m[35mCREATE DATABASE "services_app_api_development" ENCODING = 'unicode'[0m
+  [1m[35m (389.5ms)[0m  [1m[35mCREATE DATABASE "services_app_api_test" ENCODING = 'unicode'[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "comment" character varying, "rank" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "provider_id" integer)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "providers" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "providers" ("id" bigserial primary key, "name" character varying, "category" character varying, "cell_phone" character varying, "available" boolean, "company" character varying, "address" character varying, "url" character varying, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "vetted" boolean)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (3.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "provider_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170918230400)[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170918221516),
+(20170918221615),
+(20170918221648),
+(20170918222307),
+(20170918222710),
+(20170918224149),
+(20170918224354);
+
+[0m
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 22:08:28.720329"], ["updated_at", "2017-09-21 22:08:28.720329"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[35mCREATE EXTENSION IF NOT EXISTS "plpgsql"[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "comments" CASCADE[0m
+  [1m[35m (5.2ms)[0m  [1m[35mCREATE TABLE "comments" ("id" bigserial primary key, "comment" character varying, "rank" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "provider_id" integer)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mDROP TABLE IF EXISTS "providers" CASCADE[0m
+  [1m[35m (3.2ms)[0m  [1m[35mCREATE TABLE "providers" ("id" bigserial primary key, "name" character varying, "category" character varying, "cell_phone" character varying, "available" boolean, "company" character varying, "address" character varying, "url" character varying, "user_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL, "vetted" boolean)[0m
+  [1m[35m (0.3ms)[0m  [1m[35mDROP TABLE IF EXISTS "users" CASCADE[0m
+  [1m[35m (4.0ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying, "password_digest" character varying, "email" character varying, "provider_id" integer, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[35m (2.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20170918230400)[0m
+  [1m[35m (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20170918221516),
+(20170918221615),
+(20170918221648),
+(20170918222307),
+(20170918222710),
+(20170918224149),
+(20170918224354);
+
+[0m
+  [1m[35m (2.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2017-09-21 22:08:28.789160"], ["updated_at", "2017-09-21 22:08:28.789160"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Admin"], ["password_digest", "$2a$10$JdwaD182888EErVt2cYNQuAZ8wCdrsyxydyEjiR.xWZy3NUqoIKBi"], ["email", "lin1ood@gmail.com"], ["created_at", "2017-09-21 22:08:28.898207"], ["updated_at", "2017-09-21 22:08:28.898207"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "password_digest", "email", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["username", "Will"], ["password_digest", "$2a$10$Km6DXvsi2t1Das/1bbzQtOEjywEWdkJzcdds5LeXX6H9HkC0FxbHu"], ["email", "will@gmail.com"], ["created_at", "2017-09-21 22:08:28.964890"], ["updated_at", "2017-09-21 22:08:28.964890"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Marisol Reichert Sr."], ["category", "Tools"], ["cell_phone", "(750) 551-2488"], ["available", "t"], ["company", "Metz, Gleason and Willms"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.486509"], ["updated_at", "2017-09-21 22:08:29.486509"], ["vetted", "t"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Patrick Abbott Sr."], ["category", "Clothing"], ["cell_phone", "254.664.0861"], ["available", "t"], ["company", "Price, Rath and Wiza"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/2.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.490461"], ["updated_at", "2017-09-21 22:08:29.490461"], ["vetted", "t"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Vida Goodwin V"], ["category", "Computers"], ["cell_phone", "668-955-7764"], ["available", "t"], ["company", "Murray, Pagac and Larson"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.493718"], ["updated_at", "2017-09-21 22:08:29.493718"], ["vetted", "t"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Christop Reynolds"], ["category", "Beauty"], ["cell_phone", "(453) 437-4859"], ["available", "t"], ["company", "Ondricka and Sons"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.496862"], ["updated_at", "2017-09-21 22:08:29.496862"], ["vetted", "t"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Jayce Goodwin"], ["category", "Movies & Baby"], ["cell_phone", "(850) 959-9726"], ["available", "t"], ["company", "Gulgowski Group"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.499783"], ["updated_at", "2017-09-21 22:08:29.499783"], ["vetted", "t"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Damian Kunze"], ["category", "Automotive, Tools & Kids"], ["cell_phone", "619-044-3635"], ["available", "t"], ["company", "Von-Green"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/13.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.502735"], ["updated_at", "2017-09-21 22:08:29.502735"], ["vetted", "t"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Saul Emmerich I"], ["category", "Clothing & Shoes"], ["cell_phone", "548.547.3461"], ["available", "t"], ["company", "Feeney Inc"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/10.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.506202"], ["updated_at", "2017-09-21 22:08:29.506202"], ["vetted", "t"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Mr. Chadrick Armstrong"], ["category", "Toys"], ["cell_phone", "1-855-735-4818"], ["available", "t"], ["company", "Rowe, Roob and Haley"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/4.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.509407"], ["updated_at", "2017-09-21 22:08:29.509407"], ["vetted", "t"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Rogelio Volkman DVM"], ["category", "Kids, Health & Games"], ["cell_phone", "444-344-9913"], ["available", "t"], ["company", "Ward and Sons"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/1.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.512369"], ["updated_at", "2017-09-21 22:08:29.512369"], ["vetted", "t"]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "providers" ("name", "category", "cell_phone", "available", "company", "address", "url", "user_id", "created_at", "updated_at", "vetted") VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11) RETURNING "id"[0m  [["name", "Oceane Turner"], ["category", "Automotive"], ["cell_phone", "(417) 931-0526"], ["available", "t"], ["company", "Keeling-Weimann"], ["address", "Faker::Address"], ["url", "https://pigment.github.io/fake-logos/logos/medium/color/7.png"], ["user_id", 1], ["created_at", "2017-09-21 22:08:29.515359"], ["updated_at", "2017-09-21 22:08:29.515359"], ["vetted", "t"]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Velit quia asperiores enim dolores omnis voluptas. Incidunt corrupti ut ut nam fugiat. Ut tenetur numquam inventore iusto corrupti. Voluptas natus nulla eos unde sit tempora velit. Molestiae et quasi ut eligendi omnis dolores."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.529546"], ["updated_at", "2017-09-21 22:08:29.529546"], ["provider_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Et in nesciunt magnam voluptatum corporis voluptatibus. Magnam qui nisi quis laudantium. Non in consequatur. Incidunt voluptatem eum totam et excepturi temporibus dolores. Reprehenderit assumenda error."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.533539"], ["updated_at", "2017-09-21 22:08:29.533539"], ["provider_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Voluptatibus culpa omnis soluta. Aspernatur ratione voluptas id. Magni qui voluptates."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.536725"], ["updated_at", "2017-09-21 22:08:29.536725"], ["provider_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Ut ut qui. Facilis eum enim. Dolorem placeat repellendus velit laboriosam. Rerum ex voluptas qui facere quo adipisci qui. Omnis nisi consequatur aut dolore in ipsam."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.539704"], ["updated_at", "2017-09-21 22:08:29.539704"], ["provider_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Ratione qui iure. Mollitia sed in cupiditate odit non quae alias. Voluptates nisi unde quam quibusdam eius quas deserunt."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.542449"], ["updated_at", "2017-09-21 22:08:29.542449"], ["provider_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Reiciendis cupiditate qui facilis tenetur deleniti eaque soluta. Saepe recusandae necessitatibus. Dolorem alias accusamus quos ut omnis dolorum. Fugiat maxime hic eligendi optio quaerat molestias adipisci."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.545075"], ["updated_at", "2017-09-21 22:08:29.545075"], ["provider_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.1ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Nesciunt quasi repellendus a. Est natus assumenda. Repellat similique impedit dolorem quia quae aut."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.548097"], ["updated_at", "2017-09-21 22:08:29.548097"], ["provider_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.1ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Similique repellendus odio veritatis veniam quo reprehenderit. Dolor tenetur repellat dolorum sint. Sit totam voluptas suscipit vel. Hic vel ex ducimus necessitatibus magnam quia quia. Et blanditiis quas."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.551159"], ["updated_at", "2017-09-21 22:08:29.551159"], ["provider_id", 1]]
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.1ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "Alias aut non praesentium. A iusto voluptatem non nihil qui illum est. Expedita exercitationem est qui atque."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.553982"], ["updated_at", "2017-09-21 22:08:29.553982"], ["provider_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.1ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "comments" ("comment", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["comment", "In natus sunt. Eius ab rem facilis quia est non. Quia eos impedit doloribus a exercitationem alias. Recusandae quae pariatur aliquid dolores eveniet. Qui ut dicta reprehenderit."], ["rank", 3], ["created_at", "2017-09-21 22:08:29.556492"], ["updated_at", "2017-09-21 22:08:29.556492"], ["provider_id", 1]]
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/providers" for 127.0.0.1 at 2017-09-21 18:10:46 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 33ms (Views: 19.8ms | ActiveRecord: 5.3ms)
+
+
