@@ -1,6 +1,15 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:show, :update, :destroy]
+  before_action :set_provider, only: [:update, :destroy]
   # before_action :authorize_user, except: [:login, :create, :index]
+
+  # POST /providers/userId
+  def userId
+    puts '------ POST /providers/userId -------'
+    puts 'params[:user_id] = ' + params[:user_id].to_s
+    @providers = Provider.where(:user_id => params[:user_id])
+    render json: @providers
+  end
+
 
   # GET /providers
   def index

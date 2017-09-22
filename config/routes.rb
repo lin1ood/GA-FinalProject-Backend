@@ -7,7 +7,12 @@
 
 Rails.application.routes.draw do
   resources :comments, only: [:index, :show, :create, :update, :destroy]
-  resources :providers, only: [:index, :show, :create, :update, :destroy]
+  resources :providers, only: [:index, :show, :create, :update, :destroy] do
+    collection do
+      post '/userId', to: 'providers#userId'
+    end
+  end
+
   resources :users, only: [:index, :show, :create] do
     collection do
       post '/login', to: 'users#login'
