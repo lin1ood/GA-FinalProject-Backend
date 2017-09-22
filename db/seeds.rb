@@ -17,7 +17,7 @@ User.create(username: 'Will', password:'Will', email: 'will@gmail.com')
     cell_phone: Faker::PhoneNumber.cell_phone,
     available: true,
     company: Faker::Company.name,
-    address: Faker::Address,
+    address: Faker::Address.street_address,
     url: Faker::Company.logo,
     user_id: 1,
     vetted: true,
