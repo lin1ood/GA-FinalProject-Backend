@@ -38,9 +38,9 @@ class ApplicationController < ActionController::API
     #think this goes here & not the user contoller, wasn't explicit in the markdown
       def authorize_user
         puts "AUTHORIZE USER"
-        puts "username: #{get_current_user.username}"
-        puts "params: #{params[:id]}"
-        render json: { status: 401, message: 'Unauthorized' } unless get_current_user.id == params[:id].to_i
+        puts "params[:id] " + params[:id].to_s
+        # render json: { status: 401, message: 'Unauthorized' } unless get_current_user.id == params[:id].to_i
+        render json: { status: 401, message: 'Unauthorized' } unless get_current_user
       end
 
       # def authorize_user(id)

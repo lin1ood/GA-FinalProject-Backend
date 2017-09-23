@@ -27,7 +27,7 @@ end
 10.times do
   Comment.create(
     provider_id: 1,
-    comment: Faker::Lorem.paragraph,
+    review: Faker::Lorem.paragraph,
     rank: 3
   )
 end

@@ -1,12 +1,12 @@
 class ProvidersController < ApplicationController
-  before_action :set_provider, only: [:update, :destroy]
-  # before_action :authorize_user, except: [:login, :create, :index]
+  before_action :set_provider, only: [:show, :update, :destroy]
+  before_action :authorize_user, except: [:login, :index]
 
   # POST /providers/userId
   def userId
     puts '------ POST /providers/userId -------'
-    puts 'params[:user_id] = ' + params[:user_id].to_s
-    @providers = Provider.where(:user_id => params[:user_id])
+    puts 'params[:user_id] = ' + params[:id].to_s
+    @providers = Provider.where(:user_id => params[:id])
     render json: @providers
   end
 
@@ -47,6 +47,9 @@ class ProvidersController < ApplicationController
 
   # DELETE /providers/1
   def destroy
+    puts '**** Destroy this record: ' + @provider.to_s
+    puts '**** prams : ' + params.to_s
+
     @provider.destroy
   end
 
