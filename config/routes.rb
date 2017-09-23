@@ -6,7 +6,11 @@
 # end
 
 Rails.application.routes.draw do
-  resources :comments, only: [:index, :show, :create, :update, :destroy]
+  resources :comments, only: [:index, :show, :create, :update, :destroy] do
+    collection do
+      post '/providerId', to: 'comments#providerId'
+    end
+  end
   resources :providers, only: [:index, :show, :create, :update, :destroy] do
     collection do
       post '/userId', to: 'providers#userId'

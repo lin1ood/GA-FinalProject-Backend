@@ -20619,3 +20619,1790 @@ Processing by UsersController#login as HTML
 Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 2.6ms)
 
 
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 11:28:56 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 34ms (Views: 18.9ms | ActiveRecord: 8.0ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:29:07 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"here is my comment", "rank"=>5, "comment"=>{"review"=>"here is my comment", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "here is my comment"], ["rank", 5], ["created_at", "2017-09-23 15:29:07.864429"], ["updated_at", "2017-09-23 15:29:07.864429"], ["provider_id", 5]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 41ms (Views: 1.1ms | ActiveRecord: 17.8ms)
+
+
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 1], ["LIMIT", 11]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" LIMIT $1[0m  [["LIMIT", 11]]
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:37:57 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>11, "review"=>"here is my comment", "rank"=>5, "comment"=>{"review"=>"here is my comment", "rank"=>5, "provider_id"=>11}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "here is my comment"], ["rank", 5], ["created_at", "2017-09-23 15:37:57.766021"], ["updated_at", "2017-09-23 15:37:57.766021"], ["provider_id", 11]]
+  [1m[35m (6.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 49ms (Views: 1.3ms | ActiveRecord: 14.5ms)
+
+
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 11:43:38 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 36ms (Views: 20.8ms | ActiveRecord: 6.9ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:43:52 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>11, "review"=>"here is another comment", "rank"=>5, "comment"=>{"review"=>"here is another comment", "rank"=>5, "provider_id"=>11}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "here is another comment"], ["rank", 5], ["created_at", "2017-09-23 15:43:52.869791"], ["updated_at", "2017-09-23 15:43:52.869791"], ["provider_id", 11]]
+  [1m[35m (0.5ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 22ms (Views: 1.1ms | ActiveRecord: 12.2ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 11:49:44 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:49:54 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"here is one", "rank"=>5, "comment"=>{"review"=>"here is one", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "here is one"], ["rank", 5], ["created_at", "2017-09-23 15:49:54.249679"], ["updated_at", "2017-09-23 15:49:54.249679"], ["provider_id", 5]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 12ms (Views: 0.7ms | ActiveRecord: 7.3ms)
+
+
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 1], ["LIMIT", 11]]
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:53:57 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"number two", "rank"=>5, "comment"=>{"review"=>"number two", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "number two"], ["rank", 5], ["created_at", "2017-09-23 15:53:57.854059"], ["updated_at", "2017-09-23 15:53:57.854059"], ["provider_id", 5]]
+  [1m[35m (6.6ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 47ms (Views: 1.5ms | ActiveRecord: 13.6ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:54:02 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"number three", "rank"=>5, "comment"=>{"review"=>"number three", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.7ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "number three"], ["rank", 5], ["created_at", "2017-09-23 15:54:02.651944"], ["updated_at", "2017-09-23 15:54:02.651944"], ["provider_id", 5]]
+  [1m[35m (6.7ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 26ms (Views: 0.6ms | ActiveRecord: 13.7ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:54:07 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"number four", "rank"=>5, "comment"=>{"review"=>"number four", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "number four"], ["rank", 5], ["created_at", "2017-09-23 15:54:07.975182"], ["updated_at", "2017-09-23 15:54:07.975182"], ["provider_id", 5]]
+  [1m[35m (6.3ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 16ms (Views: 0.6ms | ActiveRecord: 7.4ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 11:54:16 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"number five", "rank"=>5, "comment"=>{"review"=>"number five", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "number five"], ["rank", 5], ["created_at", "2017-09-23 15:54:16.960978"], ["updated_at", "2017-09-23 15:54:16.960978"], ["provider_id", 5]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 12ms (Views: 0.7ms | ActiveRecord: 7.3ms)
+
+
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 3], ["LIMIT", 11]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT  "comments".* FROM "comments" WHERE "comments"."provider_id" = $1 LIMIT $2[0m  [["provider_id", 5], ["LIMIT", 11]]
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:09:48 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 28ms (Views: 17.2ms | ActiveRecord: 4.5ms)
+
+
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:14:44 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.8ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 32ms (Views: 16.4ms | ActiveRecord: 5.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:15:48 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:17:40 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:19:19 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:20:30 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/blogs" for 127.0.0.1 at 2017-09-23 13:21:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/blogs"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/favicon.ico" for 127.0.0.1 at 2017-09-23 13:21:35 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/users" for 127.0.0.1 at 2017-09-23 13:21:39 -0400
+Processing by UsersController#index as HTML
+Filter chain halted as :authenticate_token rendered or redirected
+Completed 200 OK in 0ms (Views: 0.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments" for 127.0.0.1 at 2017-09-23 13:21:46 -0400
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Completed 200 OK in 17ms (Views: 10.0ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:27:33 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 30ms (Views: 16.4ms | ActiveRecord: 4.8ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:27:36 -0400
+  
+AbstractController::ActionNotFound (The action 'providerId' could not be found for ProvidersController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:29:36 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 29ms (Views: 16.9ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:29:41 -0400
+  
+AbstractController::ActionNotFound (The action 'providerId' could not be found for ProvidersController):
+  
+actionpack (5.1.4) lib/abstract_controller/base.rb:119:in `process'
+actionpack (5.1.4) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.4) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.4) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.4) lib/action_dispatch/routing/route_set.rb:834:in `call'
+rack (2.0.3) lib/rack/etag.rb:25:in `call'
+rack (2.0.3) lib/rack/conditional_get.rb:38:in `call'
+rack (2.0.3) lib/rack/head.rb:12:in `call'
+activerecord (5.1.4) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.4) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.4) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:34:14 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:34:52 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 33ms (Views: 21.1ms | ActiveRecord: 5.0ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:34:54 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:35:40 -0400
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:35:40 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:35:41 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/comments" for 127.0.0.1 at 2017-09-23 13:35:52 -0400
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Completed 200 OK in 34ms (Views: 19.7ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/comments/1" for 127.0.0.1 at 2017-09-23 13:35:58 -0400
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"1"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/" for 127.0.0.1 at 2017-09-23 13:36:04 -0400
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/comments/18" for 127.0.0.1 at 2017-09-23 13:36:13 -0400
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"18"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:36:19 -0400
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"providerId"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/providerId/18" for 127.0.0.1 at 2017-09-23 13:36:43 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/comments/providerId/18"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/comments/" for 127.0.0.1 at 2017-09-23 13:36:53 -0400
+Processing by CommentsController#index as HTML
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments"[0m
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:37:05 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 27ms (Views: 18.2ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:37:08 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/comments/provideId" for 127.0.0.1 at 2017-09-23 13:39:24 -0400
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"provideId"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:39:35 -0400
+Processing by CommentsController#show as HTML
+  Parameters: {"id"=>"providerId"}
+Completed 200 OK in 0ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:40:10 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.7ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 6ms (Views: 4.7ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:40:12 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 13:40:21 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"fgafgaf", "rank"=>5, "comment"=>{"review"=>"fgafgaf", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "fgafgaf"], ["rank", 5], ["created_at", "2017-09-23 17:40:21.668383"], ["updated_at", "2017-09-23 17:40:21.668383"], ["provider_id", 5]]
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 30ms (Views: 1.0ms | ActiveRecord: 7.7ms)
+
+
+Started POST "/comments" for 127.0.0.1 at 2017-09-23 13:40:57 -0400
+Processing by CommentsController#create as HTML
+  Parameters: {"provider_id"=>5, "review"=>"fgafgaf", "rank"=>5, "comment"=>{"review"=>"fgafgaf", "rank"=>5, "provider_id"=>5}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT  "providers".* FROM "providers" WHERE "providers"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "comments" ("review", "rank", "created_at", "updated_at", "provider_id") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["review", "fgafgaf"], ["rank", 5], ["created_at", "2017-09-23 17:40:57.644295"], ["updated_at", "2017-09-23 17:40:57.644295"], ["provider_id", 5]]
+  [1m[35m (6.4ms)[0m  [1m[35mCOMMIT[0m
+Completed 201 Created in 14ms (Views: 0.6ms | ActiveRecord: 7.9ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:41:01 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:41:04 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:41:32 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:41:40 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:41:41 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:42:56 -0400
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 29ms (Views: 17.0ms | ActiveRecord: 4.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:42:58 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:43:51 -0400
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 31ms (Views: 16.5ms | ActiveRecord: 5.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:43:54 -0400
+  
+ActionController::RoutingError (No route matches [POST] "/comments/providerId"):
+  
+actionpack (5.1.4) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.4) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.4) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.4) lib/rails/rack/logger.rb:24:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.4) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.4) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.3) lib/rack/sendfile.rb:111:in `call'
+rack-cors (1.0.1) lib/rack/cors.rb:93:in `call'
+railties (5.1.4) lib/rails/engine.rb:522:in `call'
+puma (3.10.0) lib/puma/configuration.rb:225:in `call'
+puma (3.10.0) lib/puma/server.rb:605:in `handle_request'
+puma (3.10.0) lib/puma/server.rb:437:in `process_client'
+puma (3.10.0) lib/puma/server.rb:301:in `block in run'
+puma (3.10.0) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:45:41 -0400
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (1.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 40ms (Views: 24.2ms | ActiveRecord: 5.7ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:45:43 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 10ms (Views: 7.0ms | ActiveRecord: 10.6ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:46:09 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:46:10 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:48:25 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:48:28 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:48:32 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:51:18 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.8ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:51:23 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:51:25 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:51:52 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:51:54 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:51:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:52:33 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:52:47 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:52:49 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:52:51 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 13:53:20 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:53:22 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:53:25 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 13:55:58 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:00:32 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:00:33 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:00:34 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:00:52 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:00:53 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:00:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:00:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:01:00 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:01:04 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:01 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:03 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:07 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:09 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.7ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 6ms (Views: 4.5ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:02:41 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:43 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:46 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:53 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:54 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:02:58 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:03:05 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:04:48 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:04:49 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:04:50 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:04:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:04:57 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:05:20 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:05:22 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:05:25 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:05:28 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:05:49 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:05:51 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:05:53 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:06:43 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:06:51 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:07:00 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:07:11 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:07:13 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:07:14 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:14:13 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:14:15 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 2ms (Views: 1.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:14:18 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:14:49 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:14:51 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:14:53 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:14:58 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:15:01 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:15:02 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:16:18 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:16:21 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:26:21 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:22 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:25 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:26 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:27 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:28 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:30 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:30 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:26:57 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:26:58 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:27:00 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:27:02 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:27:04 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:27:05 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:28:50 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:29:09 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:30:03 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:31:05 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:06 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:31:14 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:15 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:17 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:20 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:22 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:23 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:24 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:31:53 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:54 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:57 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:58 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:31:59 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:32:03 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:32:29 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:32:39 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:32:40 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:32:42 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 4ms (Views: 2.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:32:43 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:32:44 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:32:45 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:32:49 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:34:52 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:34:53 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:34:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:34:57 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:34:59 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:35:00 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:35:23 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:40:05 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 4ms (Views: 2.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:41:03 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:42:24 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:25 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:27 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:30 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 0.9ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:32 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:42:41 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:42 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:44 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:45 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:45 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:42:54 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.3ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:55 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:56 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:57 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:42:57 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 1.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:44:16 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:44:17 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:44:24 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:44:25 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.5ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:45:28 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:45:29 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 5ms (Views: 3.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:45:30 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:45:32 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>6, "comment"=>{"id"=>6}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 6]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:45:33 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>7, "comment"=>{"id"=>7}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 7]]
+Completed 200 OK in 2ms (Views: 1.0ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:46:04 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/providers" for 127.0.0.1 at 2017-09-23 14:46:46 -0400
+Processing by ProvidersController#index as HTML
+  [1m[36mProvider Load (0.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:46:47 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>5, "comment"=>{"id"=>5}}
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 5]]
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/comments/providerId" for 127.0.0.1 at 2017-09-23 14:46:49 -0400
+Processing by CommentsController#providerId as HTML
+  Parameters: {"id"=>11, "comment"=>{"id"=>11}}
+  [1m[36mComment Load (0.4ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."provider_id" = $1[0m  [["provider_id", 11]]
+Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.4ms)
+
+

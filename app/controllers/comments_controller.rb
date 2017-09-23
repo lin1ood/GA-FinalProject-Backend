@@ -1,6 +1,15 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :update, :destroy]
 
+
+  # POST /comments/providerId
+  def providerId
+    puts '------ POST /comments/providerId -------'
+    puts 'params[:provider_id] = ' + params[:id].to_s
+    @providers = Comment.where(:provider_id => params[:id])
+    render json: @providers
+  end
+
   # GET /comments
   def index
     @comments = Comment.all
